@@ -6,6 +6,7 @@ on:
   push:
     branches:
       - master
+      - trunk
   schedule:
     - cron: "10 2 * * 0"
 
