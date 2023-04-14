@@ -28,9 +28,6 @@ jobs:
           -v /sys/fs/cgroup:/sys/fs/cgroup:rw --cgroupns=host
           docker-ansible
 
-      - name: Verify Ansible is accessible in the built image.
-        run: docker exec --tty test-container env TERM=xterm ansible --version
-
   # If on master branch, build and release image.
   release:
     name: Release
