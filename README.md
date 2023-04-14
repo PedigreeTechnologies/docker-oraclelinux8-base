@@ -1,12 +1,12 @@
-# Rocky Linux 8 Ansible Test Image
+# Oracle Linux 8 Image
 
-[![CI](https://github.com/geerlingguy/docker-rockylinux8-ansible/workflows/Build/badge.svg?branch=master&event=push)](https://github.com/geerlingguy/docker-rockylinux8-ansible/actions?query=workflow%3ABuild) [![Docker pulls](https://img.shields.io/docker/pulls/geerlingguy/docker-rockylinux8-ansible)](https://hub.docker.com/r/geerlingguy/docker-rockylinux8-ansible/)
+[![CI][Actions]][ActionsBuild] [![Docker pulls][DockerImg]][Docker]
 
-Rocky Linux 8 Docker container for Ansible playbook and role testing.
+Oracle Linux 8 Docker container for Ansible playbook and role testing.
 
 ## Tags
 
-  - `latest`: Latest stable version of Ansible.
+  - `latest`: Latest stable version of Oracle Linux 8
 
 The latest tag is a lightweight image for basic validation of Ansible playbooks.
 
@@ -16,16 +16,13 @@ This image is built on Docker Hub automatically any time the upstream OS contain
 
   1. [Install Docker](https://docs.docker.com/engine/installation/).
   2. `cd` into this directory.
-  3. Run `docker build -t rockylinux8-ansible .`
+  3. Run `docker build -t oraclelinux8-base .`
 
 ## How to Use
 
   1. [Install Docker](https://docs.docker.com/engine/installation/).
-  2. Pull this image from Docker Hub: `docker pull geerlingguy/docker-rockylinux8-ansible:latest` (or use the image you built earlier, e.g. `rockylinux8-ansible:latest`).
-  3. Run a container from the image: `docker run --detach --privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:rw --cgroupns=host geerlingguy/docker-rockylinux8-ansible:latest` (to test my Ansible roles, I add in a volume mounted from the current working directory with ``--volume=`pwd`:/etc/ansible/roles/role_under_test:ro``).
-  4. Use Ansible inside the container:
-    a. `docker exec --tty [container_id] env TERM=xterm ansible --version`
-    b. `docker exec --tty [container_id] env TERM=xterm ansible-playbook /path/to/ansible/playbook.yml --syntax-check`
+  2. Pull this image from Docker Hub: `docker pull pedigreetechnologies/docker-oraclelinux8-base:latest` (or use the image you built earlier, e.g. `oraclelinux8-base:latest`).
+  3. Run a container from the image: `docker run --detach --privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:rw --cgroupns=host pedigreetechnologies/docker-oraclelinux8-base:latest`
 
 ## Notes
 
@@ -35,4 +32,10 @@ I use Docker to test my Ansible roles and playbooks on multiple OSes using CI to
 
 ## Author
 
-Created in 2021 by [Jeff Geerling](https://www.jeffgeerling.com/), author of [Ansible for DevOps](https://www.ansiblefordevops.com/).
+Originally created in 2021 by [Jeff Geerling](https://www.jeffgeerling.com/), author of [Ansible for DevOps](https://www.ansiblefordevops.com/).
+Adapted for internal use at Pedigree Techologies in 2023.
+
+[Actions]: https://github.com/PedigreeTechnologies/docker-oraclelinux8-base/workflows/Build/badge.svg?branch=master&event=push
+[ActionsBuild]: https://github.com/PedigreeTechnologies/docker-oraclelinux8-base/actions?query=workflow%3ABuild
+[DockerImg]: https://img.shields.io/docker/pulls/pedigreetechnologies/docker-oraclelinux8-base
+[Docker]: https://hub.docker.com/r/pedigreetechnologies/docker-oraclelinux8-base
